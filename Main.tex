@@ -1,0 +1,89 @@
+%% Use the option review to obtain double line spacing
+%\documentclass[preprint,authoryear,12pt]{elsarticle}
+
+% Use this option for journal layout.
+\documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+%\documentclass[review,authoryear,5p,times,twocolumn]{elsarticle}
+%\documentclass[review,authoryear,12pt]{elsarticle}
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\graphicspath{images}
+
+% -----------XML HIGHLIGHT--------------
+\usepackage{listings}
+\usepackage{filecontents}
+
+%\linespread{1.5}
+
+\lstset{
+    upquote=true,
+    basicstyle=\ttfamily,
+    columns=fullflexible,
+    showstringspaces=false,
+    commentstyle=\color{gray}\upshape
+}
+\definecolor{darkblue}{rgb}{0,0,.5}
+\lstdefinelanguage{XML}
+{
+    morestring=[b]",
+    morestring=[s]{>}{<},
+    morecomment=[s]{<?}{?>},
+    stringstyle=\color{black},
+    identifierstyle=\color{darkblue},
+    keywordstyle=\color{cyan},
+    morekeywords={MenuIds,BBOX,server,name,ID,EN,ES,xmlns,version,type}% list your attributes here
+}
+% -----------END XML HIGHLIGHT--------------
+
+\setlength\parindent{0pt}
+
+\journal{Name of Journal}
+
+\begin{document}
+
+\begin{frontmatter}
+    % Read the documents inside the Elsevier folder for more options on authors and title.
+
+    \title{OWGIS 3: The open source highway for creating scientific GIS websites}
+
+    \author[miamiadd]{Olmo} \ead{osz1@miami.edu}
+    \author[unamadd]{ Ixchel } \ead{}
+    \author[unamadd]{ Jorge } \ead{jzavala@atmosfera.unam.mx}
+    \author[unamadd]{ Rosario } \ead{}
+    \author[unamadd]{ Raul } \ead{}
+    \author[unamadd]{ Vladimir } \ead{}
+    \author[unamadd]{ Pavel } \ead{}
+    \author[unamadd]{ Pablo } \ead{}
+    \author[unamadd]{ Cuauhtemoc } \ead{}
+    \author[unamadd]{ Angy } \ead{}
+
+    \address[miamiadd]{Department of Scientific Computing, Florida State University,  Tallahassee FL }
+    \address[unamadd]{Centro de Ciencias de la Atm\'osfera, Universidad Nacional Aut\'onoma de M\'exico, Mexico City}
+
+    \input{sections/AbstractN.tex}
+
+    \begin{keyword}
+    Web GIS \sep GeoServer \sep  ncWMS \sep  GIS \sep  NetCDF \sep Open Geospatial Consortium \sep  OpenLayers 
+    \end{keyword}
+
+\end{frontmatter}
+
+\input{sections/Intro.tex}
+\input{sections/Arch.tex}
+\input{sections/Features.tex}
+\input{sections/UseCase.tex}
+\input{sections/Conclusions.tex}
+
+\subsection*{Acknowledgments}
+
+\bibliography{MyPublications,zotero,External}
+\bibliographystyle{elsarticle-harv}
+% \input{Appendix.tex}
+
+\end{document} 

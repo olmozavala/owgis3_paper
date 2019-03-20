@@ -1,0 +1,95 @@
+%% Use the option review to obtain double line spacing
+%\documentclass[preprint,authoryear,12pt]{elsarticle}
+
+% Use this option for journal layout.
+\documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+%\documentclass[review,authoryear,5p,times,twocolumn]{elsarticle}
+%\documentclass[review,authoryear,12pt]{elsarticle}
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+% -----------XML HIGHLIGHT--------------
+\usepackage{listings}
+\usepackage{filecontents}
+
+%\linespread{1.5}
+
+\lstset{
+    upquote=true,
+    basicstyle=\ttfamily,
+    columns=fullflexible,
+    showstringspaces=false,
+    commentstyle=\color{gray}\upshape
+}
+\definecolor{darkblue}{rgb}{0,0,.5}
+\lstdefinelanguage{XML}
+{
+    morestring=[b]",
+    morestring=[s]{>}{<},
+    morecomment=[s]{<?}{?>},
+    stringstyle=\color{black},
+    identifierstyle=\color{darkblue},
+    keywordstyle=\color{cyan},
+    morekeywords={MenuIds,BBOX,server,name,ID,EN,ES,xmlns,version,type}% list your attributes here
+}
+% -----------END XML HIGHLIGHT--------------
+
+\setlength\parindent{0pt}
+
+\journal{Name of Journal}
+
+\begin{document}
+
+\begin{frontmatter}
+    % Read the documents inside the Elsevier folder for more options on authors and title.
+
+    \title{An open source Java web application to build self-contained Web GIS sites}
+
+    \author[fsuadd]{ Olmo Zavala-Romero} \ead{osz09@fsu.edu}
+    \author[fsuadd2]{ Arsalan Ahmed} \ead{aahmed@coaps.fsu.edu}
+    \author[coapsadd]{ Eric P. Chassignet} \ead{echassignet@coaps.fsu.edu}
+    \author[unamadd]{ Jorge Zavala-Hidalgo} \ead{jzavala@atmosfera.unam.mx}
+    \author[unamadd]{ Agustin Fern\'andez Eguiarte} \ead{agustin@unam.mx}
+    \author[fsuadd]{ Anke Meyer-Baese }
+
+    \address[fsuadd]{Department of Scientific Computing, Florida State University,  Tallahassee FL }
+    \address[fsuadd2]{ Department of Computer Science, Florida State University, Tallahassee FL }
+    \address[coapsadd]{Center for Ocean-Atmospheric Prediction Studies, Florida State University, Tallahassee FL }
+    \address[unamadd]{Centro de Ciencias de la Atm\'osfera, Universidad Nacional Aut\'onoma de M\'exico, Mexico City}
+
+    \input{AbstractN.tex}
+
+    \begin{keyword}
+    Web GIS \sep  Open Geospatial Consortium \sep  OpenLayers \sep  GeoServer \sep  ncWMS \sep  GIS \sep  NetCDF 
+    \end{keyword}
+
+\end{frontmatter}
+
+\input{Intro.tex}
+\input{Arch.tex}
+\input{DesignPrinciples.tex}
+\input{Configuration.tex}
+\input{Features.tex}
+\input{UseCase.tex}
+\input{Conclusions.tex}
+\input{SoftwareAvailability.tex}
+
+ \subsection*{Acknowledgments}
+ This project was made possible in part by a grant from BP/The Gulf of Mexico Research Initiative
+ to the Deep-C Consortium, and in part by normal funding through the UNAM. 
+ The present work benefited from the input of Ossian Foley, Meredith Field, 
+ and Rosario Romero who provided valuable comments on the writing of this paper.
+
+%\bibliography{/home/olmozavala/Dropbox/MyReferences/MyPublications,/home/olmozavala/Dropbox/MyReferences/zotero,/home/olmozavala/Dropbox/MyReferences/External}
+\bibliography{MyPublications,zotero,External}
+\bibliographystyle{elsarticle-harv}
+
+% \input{Appendix.tex}
+
+\end{document} 
