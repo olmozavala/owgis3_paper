@@ -1,0 +1,150 @@
+\appendix
+\section*{Appendix}
+\label{sec:app}
+
+\begin{table*}[h]
+     \centering
+     \caption{Features provided by OWGIS divided by layer type. }
+     \begin{tabularx}{460pt}{|l|X|l|}
+         \hline
+         \textbf{Feature} & \textbf{Description} & \textbf{Layer types} \\
+         \hline
+         \emph{Mobile interface} & Minmized interface used for mobile devices (phones or tablets). & All \\
+         \hline
+         \emph{Multiple languages} & Display menu's texts on multiple languages by defining a
+                                a two character string corresponding to the desired language. & All \\
+         \hline
+         \emph{Punctual data} & Access feature info from the layer at any spatial 
+         position. & All \\
+         \hline
+         \emph{Download as KML} & Download layers in KML format (for displaying the layers
+            in KML clients such as Google Earth). & All \\  
+         \hline
+         \emph{Transparency} & Change the opacity of main layers and optional layer. & All \\  
+         \hline
+         \emph{Download data} & Download data in Geotiff format for raster layers an in a zip boundle
+                   & Vector layers,  \\  
+               &     with shape files for vector layers.& Raster (GeoTIFF)\\ 
+         \hline
+         \emph{CQL filter} & Filters the displayed data and the feature selection
+             using the Contextual Query Language (CQL). & Vector layers \\  
+         \hline
+         \emph{Animations} & Generate temporal animation by selecting a start date and 
+             end date from calendars. The animations can be generated 
+             with three diferent resolutions high (512x512), default (256x256) and
+             low (128x128). & Raster (ncWMS) \\  
+         \hline
+         \emph{Vertical profile} & Requests a vertical profile after selecting a 
+             polygon. & Raster (ncWMS) \\   
+         \hline
+         \emph{Vertical transect} & Requests a vertical transect after selecting a 
+             polygon. &  Raster (ncWMS)  \\   
+         \hline
+         \emph{Time series} & Displays time series of a layer from an specific 
+            location. The time range is selected from a start and end calendars. 
+            &  Raster (ncWMS)  \\   
+         \hline
+         \emph{Color Palette} & Change the color palette of the layer from 
+          ten possible options avialable through ncWMS servers (color palettes can be extended). & Raster (ncWMS) \\   
+         \hline
+         \emph{Color range} & Define the layer values used as the  minimum and 
+                 maximum values of the color palette. & Raster (ncWMS) \\ 
+         \hline
+         \emph{Auto. color} & Automatically set the color range of the layer by
+                    obtaining the maximum and minimum values of the layer. & Raster (ncWMS) \\  
+        \hline
+         \emph{Depth selection} & Select any z-axis from the layer. The z-axis can be
+         diffent elevations or any other variable like pressure. & Raster (ncWMS) \\  
+         \hline
+     \end{tabularx}
+     \label{tab:features}
+ \end{table*}
+
+
+\begin{table*}[h]
+     \centering
+     \caption{List of available attributes for the node \textbf{Menus} and \textbf{BackgroundLayers}. }
+     \begin{tabularx}{490pt}{|l|l|l|X|c|}
+         \hline
+         \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Description} & \textbf{Default value} \\
+         \hline
+         \textbf{BackgroundLayers} &&&&\\
+         &   \emph{BBOX}&& Default boundary box. & -180,-90,180,90\\
+         &   \emph{format}&& Default image format. & image/jpeg\\
+         &   \emph{proj}&& Default layer projection.& EPSG:4326\\
+         &   \emph{server}&& Default WMS url server.& \\
+         &   \emph{trans\_effect}&& Transition effect used by OpenLayers 
+                    when zooming the map. To avoid a transition effect set
+                    this attribute to 'none'& default. \\
+         &   \emph{tiled}&& Defines if the layer
+                    should be requested as tiles or as single image.& true\\
+         & \textbf{layer} && Sets specific attributes for the layers and 
+                 allows overwriting any of the attributes in \textbf{Level 2}. &\\
+         &&   \emph{MenuIds} (req)& List of menu ids that are used to select a layer. & \\
+         &&   \emph{name} (req)& Name of the layer in the wms or ncwms server. & \\
+         &&   \emph{featureInfo} & Name of a different layer to make the punctual data requests. By 
+                    default this WFS requests are made to the same layer.& none \\
+         &&   \emph{vectorlayer}& Boolean attribute that indicate if this
+         layer is a vector layer.& false \\
+         \hline
+     \end{tabularx}
+     \label{tab:schema}
+ \end{table*}
+ 
+
+\begin{table*}[h]
+     \centering
+     \caption{List of available attributes for the node \textbf{VectorLayers}. 
+     \textbf{VectorLayers} tag contains all the attributes from the \textbf{BackgroundLayers} element tag plus
+ the ones explained in this table.}
+     \begin{tabularx}{490pt}{|l|l|l|X|c|}
+         \hline
+         \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Description} & \textbf{Default value} \\
+         \hline
+         \textbf{VectorLayers} &&& Defines default values for internal layers in this node.& \\
+         &   \emph{style}&& Allows defining a different style for the layers. 
+         The style should be available on the server that stores the layer.& default \\
+         &   \emph{vectorlayer}&& Boolean attribute that indicate if this
+         layer is a vector layer.& false \\
+         &   \emph{cqlcols}&& This is a string used to display a list of available CQL columns 
+                for a layer. & none\\
+         & \textbf{layer} && Sets specific attributes for the layers and 
+                 allows overwriting any of the attributes in \textbf{Level 2}. &\\
+         &&   \emph{MenuIds} (required)& List of menu ids that are used to select a layer. & \\
+         &&   \emph{CQL} & This attribute can be used to specify a default CQL filter
+         applied to the layer. This attribute can only be used if the layer is a vector layer. & none \\
+         &&   \emph{selected} & This attribute indicates if the optional layer is
+         selected. & false\\
+         \hline
+     \end{tabularx}
+     \label{tab:schema2}
+ \end{table*}
+
+\begin{table*}[h]
+     \centering
+     \caption{List of available attributes for the node \textbf{MainLayers}. \textbf{MainLayers}
+     element tag contains all the attributes from the \textbf{VectorLayers} element tag plus
+         the ones explained in this table.}
+     \begin{tabularx}{490pt}{|l|l|l|X|c|}
+         \hline
+         \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Description} & \textbf{Default value} \\
+         \hline
+         \textbf{MainLayers} &&& Defines default values for internal layers in this node. &  \\
+         &   \emph{palette}&& Default palette. Only used for ncWMS layers.& default \\
+         &   \emph{mincolor}&& Default minimum value of the color palette. Only 
+                used for ncWMS layers& -1 \\
+         &   \emph{maxcolor}&& Default maximum value of the color palette. Only 
+                used for ncWMS layers& -1 \\
+         &   \emph{ncWMS}&& Boolean value that defines if the internal layers are served
+         by a ncWMS server.& \\
+         &   \emph{max\_time\_range}&& Indicates a maximum time range to be allowed
+         when selecting dates for an animation. The possible options are week, month,
+         bimonth or year.& month\\
+         & \textbf{layer} && Sets specific attributes for the layers and 
+         allows overwriting any of the attributes of \textbf{Level 2}& \\
+         &&   \emph{EN} (required)& English title to be displayed on the interface when this layer is selected. & \\
+         \hline
+     \end{tabularx}
+     \label{tab:schema3}
+ \end{table*}
+
